@@ -1,0 +1,71 @@
+Goで携帯を操作してみよう(iOS編)
+14 Oct 2017
+第10回横浜Go読書会
+
+Yuji Nagatomo
+
+* 内容
+- 動機 
+- 準備
+- サンプル 
+- デモ
+- 補足
+- おまけ
+
+* 動機
+
+1. これまでの読書会での発表が参考になった。
+　第5回：Golang x PhantomJSの可能性
+　第6回：Present でスライドを作ろう
+　第7回：GoでTwitter bot を作ってみた
+　第8回：ライフハック
+
+2. テストを仕事にしている。
+　最新機種でサービスがちゃんと動くのか気になる。
+
+* 準備
+
+テスト対象：Webサービス
+
+テスト端末：iPhoneX (発売前なのでシミュレーターで)
+
+使うもの：Go と Agouti 、それと今回は Appium と Xcode(WebDriverAgent)
+
+　端末(simulator)[Safari ← WebDriverAgent] ←(USB)- Mac本体[Appium ← テスト用コード] 
+
+手順：
+　1. Xcode に附属する simulator で iPhoneX を起動する。
+　2. Xcode を使って、iPhoneX に WebDriverAgent をインストールする。※
+　3. Appium を起動する。
+　4. Goで書いたテスト用のコードを走らせる。
+
+　 ※ WebDriverAgent は端末側に入れて、外部から UI Test Runner をたたけるようにするもの
+
+* サンプル
+
+simulator の iPhoneX を動かすためのいくつかオプションを指定しています。
+　※ コードはスペースの関係で、一部を表示しています。
+.code example/ios_sample_simulator_iPhoneX_11_agouti.go /START OMIT/,/END OMIT/
+
+* デモ
+
+iPhoneX 上の safari でサイトにアクセスする。
+
+* 補足
+
+実機(iOS)で行う場合には、 オプションに、USB ケーブルで接続した端末の udid の項目を追加する。
+また、ios_webkit_debug_proxy というものも Appium 以外に起動しておく必要があります。
+(Apple Develperメンバー登録も)
+
+Android では、WebDriverAgent のようなものを端末に入れる必要はなく、
+adb 接続して Appium を起動する。そしてテスト用コードを走らせます。
+
+* おまけ
+
+PhantomJS というヘッドレスブラウザ以外に最近では、Chrome や Firefox もヘッドレスモードが使えるようになっています。
+
+例えば、Firefox でヘッドレスモードで動かす場合には、
+
+　MOZ_HEADLESS=1 go run xxx.go
+
+のようにして起動します。
