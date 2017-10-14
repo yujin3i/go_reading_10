@@ -31,7 +31,7 @@ Yuji Nagatomo
 
 使うもの：Go と Agouti 、それと今回は Appium と Xcode(WebDriverAgent)
 
-　端末(simulator)[Safari ← WebDriverAgent] ←(USB)- Mac本体[Appium ← テスト用コード] 
+　端末(simulator)[Safari ← WebDriverAgent] ← Mac本体[Appium ← テスト用コード] 
 
 手順：
 　1. Xcode に附属する simulator で iPhoneX を起動する。
