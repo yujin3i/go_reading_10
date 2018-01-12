@@ -55,7 +55,7 @@ iPhoneX 上の safari でサイトにアクセスする。
 
 実機(iOS)で行う場合には、 オプションに、USB ケーブルで接続した端末の udid の項目を追加する。
 また、ios_webkit_debug_proxy というものも Appium 以外に起動しておく必要があります。
-(Apple Develperメンバー登録も)
+(Xcode7 から普通の Apple ID で実機で確認が可能にあったそうです。App Storeで公開とかする場合はApple Develperメンバー登録もいります。)
 
 Android では、WebDriverAgent のようなものを端末に入れる必要はなく、
 adb 接続して Appium を起動する。そしてテスト用コードを走らせます。
